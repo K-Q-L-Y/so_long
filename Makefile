@@ -79,6 +79,10 @@ xpm:
 		echo "Converted $$file to $$dest_file"; \
 	done
 
+push:
+	@read -p "Commit name: " commit_name; make fclean;	\
+	cd $(CWD); git add .; git commit -m "$$commit_name"; git push;	\
+
 all: $(NAME)
 
 re: clean all
