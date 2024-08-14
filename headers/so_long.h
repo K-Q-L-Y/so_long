@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/14 18:01:52 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/14 22:08:04 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ typedef struct s_game
 
 // Initialization
 void			ft_check_arguments(int argc, char **argv, t_game *game);
+void			ft_check_map(t_game *game);
 void			ft_flood_fill(t_game *game);
 t_img			ft_create_sprite(void *mlx, char *path, t_game *game);
 void			ft_init_game(t_game *game, char *map);
