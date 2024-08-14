@@ -6,13 +6,22 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/14 11:44:47 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/14 18:01:52 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../includes/libft/libft.h"
+# include "assets_path.h"
+# include "mlx.h"
+# include "trgb_colours.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 # define TITLE "SO_LONG"
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -50,16 +59,6 @@ enum			e_blocks
 	PLAYER = 'P',
 	EXIT = 'E',
 };
-
-# include "../includes/libft/libft.h"
-# include "assets_path.h"
-# include "mlx.h"
-# include "trgb_colours.h"
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
 
 typedef struct s_img
 {
