@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 16:48:34 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/13 16:07:08 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/14 19:24:55 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	open_fd(char *filename, int permission, t_game *game)
 	fd = open(filename, permission);
 	if (fd < 0)
 	{
-		ft_putendl_fd(filename, 2);
+		ft_putstr_fd(filename, 2);
 		ft_exit_error(": Map not found\n", game);
 	}
 	return (fd);
@@ -61,9 +61,9 @@ static void	init_map_dimensions(t_game *game, char *filename)
 	}
 	close(fd);
 	if (player_count != 1)
-		ft_exit_error("More than 1 player found.\n", game);
+		ft_exit_error("Invalid number of players found.\n", game);
 	if (exit_count != 1)
-		ft_exit_error("More than 1 exit found.\n", game);
+		ft_exit_error("Invalid number of exits found.\n", game);
 	if (game->map.collectible == 0)
 		ft_exit_error("No collectibles found.\n", game);
 }
