@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:00 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/14 22:29:52 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:47:50 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 	ft_init_game(game, argv[1]);
 	ft_mlx_new_window(game, TITLE, IMG_SIZE * game->map.x, IMG_SIZE
 		* game->map.y);
+	mlx_do_key_autorepeaton(game->mlx);
 	mlx_hook(game->win, KeyPress, KeyPressMask, key_press, game);
 	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, ft_close_game_lost,
 		game);
