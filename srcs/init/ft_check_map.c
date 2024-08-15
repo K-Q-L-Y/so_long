@@ -6,23 +6,11 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:07:03 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 21:44:26 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:18:28 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	ft_strlen_nl(char *s)
-{
-	int	len;
-
-	len = ft_strlen(s);
-	if (!len)
-		return (0);
-	if (ft_ends_with(s, "\n"))
-		len -= 2;
-	return (len);
-}
 
 static void	check_wall(t_game *game)
 {
@@ -49,6 +37,9 @@ static void	check_wall(t_game *game)
 
 // checks if map is valid
 // Initialise player position
+// below is for special case where last line has \n
+// if (y == game->map.y - 1 && ft_ends_with(game->map.blocks[y], "\n"))
+// 	ft_exit_error("Newline at end of file.\n", game);
 void	ft_check_map(t_game *game)
 {
 	int	y;
@@ -62,8 +53,6 @@ void	ft_check_map(t_game *game)
 		x = -1;
 		if (ft_strlen_nl(game->map.blocks[y]) != game->map.x)
 			ft_exit_error("Map is not rectangular.\n", game);
-		if (y == game->map.y - 1 && ft_ends_with(game->map.blocks[y], "\n"))
-			ft_exit_error("Newline at end of file.\n", game);
 		while (++x < game->map.x)
 		{
 			if (ft_strchr("PCE01", game->map.blocks[y][x]) == 0)

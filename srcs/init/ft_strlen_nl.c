@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_sprite.c                                 :+:      :+:    :+:   */
+/*   ft_strlen_nl.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 16:22:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 22:09:33 by cseng-kh         ###   ########.fr       */
+/*   Created: 2024/08/15 22:05:13 by cseng-kh          #+#    #+#             */
+/*   Updated: 2024/08/15 22:05:27 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// Create image from XPM file
-t_img	ft_create_sprite(void *mlx, char *path, t_game *game)
+int	ft_strlen_nl(char *s)
 {
-	t_img	sprite;
+	int	len;
 
-	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
-	if (sprite.xpm_ptr == NULL)
-	{
-		ft_putstr_fd("Error:\n\t", 2);
-		ft_putstr_fd(path, 2);
-		ft_putstr_fd(": XPM file not found\n", 2);
-		ft_exit_error("", game);
-	}
-	return (sprite);
+	len = ft_strlen(s);
+	if (!len)
+		return (0);
+	while (s[len - 1] == '\n' || s[len - 1] == '\r')
+		len -= 1;
+	return (len);
 }
