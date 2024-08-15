@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 16:48:34 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 21:41:16 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:18:05 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	init_map_dimensions(t_game *game, char *filename)
 		player_count += ft_count_occurence(line, 'P');
 		exit_count += ft_count_occurence(line, 'E');
 		game->map.y++;
-		game->map.x = ft_strlen(line) - (ft_ends_with(line, "\r\n") * 2);
+		game->map.x = ft_strlen_nl(line);
 		free(line);
 	}
 	close(fd);

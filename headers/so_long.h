@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/14 22:52:42 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:06:00 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void			ft_init_map(t_game *game, char *map);
 void			ft_init_player(t_game *game);
 void			ft_init_sprites(t_game *game);
 char			*get_next_line(int fd);
+int				ft_strlen_nl(char *s);
 
 // Player
 int				key_press(int keycode, t_game *data);
