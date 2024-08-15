@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 22:06:00 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/15 23:34:38 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SO_LONG_H
 
 # include "../includes/libft/libft.h"
+# include "../mlx_linux/mlx.h"
 # include "assets_path.h"
-# include "mlx.h"
 # include "trgb_colours.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
