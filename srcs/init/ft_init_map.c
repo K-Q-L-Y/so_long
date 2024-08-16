@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 16:48:34 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 22:18:05 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:43:20 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static int	open_fd(char *filename, int permission, t_game *game)
 	fd = open(filename, permission);
 	if (fd < 0)
 	{
+		ft_putstr_fd("Error:\n\t", 2);
 		ft_putstr_fd(filename, 2);
-		ft_exit_error(": Map not found\n", game);
+		ft_putstr_fd(": Map not found.\n", 2);
+		ft_exit_error("", game);
 	}
 	return (fd);
 }
