@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:07:03 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 22:18:28 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:30:50 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ void	ft_check_map(t_game *game)
 				game->player.y = y;
 		}
 	}
+	if (game->map.x > 100 || game->map.y > 100)
+		ft_exit_error("Map too big, max 100x100.\n", game);
 	check_wall(game);
 }

@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 21:24:05 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/16 09:42:19 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:17:07 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ enum			e_key_inputs_mac
 // directions
 enum			e_directions
 {
+	IDLE = 0,
 	UP = 1,
 	DOWN = 2,
 	LEFT = 3,
@@ -125,6 +126,10 @@ typedef struct s_img
 typedef struct s_animation
 {
 	t_img		player_idle;
+	t_img		player_up;
+	t_img		player_down;
+	t_img		player_left;
+	t_img		player_right;
 	t_img		wall;
 	t_img		floor;
 	t_img		finish;

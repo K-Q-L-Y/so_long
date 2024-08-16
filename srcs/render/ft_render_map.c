@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 14:53:43 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/11 15:14:32 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 10:43:22 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	ft_render_map(t_game *game)
 		while (++x < game->map.x)
 		{
 			if (game->map.blocks[y][x] == WALL)
-				ft_render_sprite(game, game->animation.wall, y, x);
+				ft_render_walls(game, y, x);
 			else if (game->map.blocks[y][x] == EXIT)
-				ft_render_sprite(game, game->animation.finish, y, x);
+				ft_render_finish(game, y, x);
 			else if (game->map.blocks[y][x] == COLLECTIBLE)
-				ft_render_sprite(game, game->animation.collectible, y, x);
+				ft_render_collectibles(game, y, x);
 			else
-				ft_render_sprite(game, game->animation.floor, y, x);
+				ft_render_floor(game, y, x);
 		}
 	}
 }

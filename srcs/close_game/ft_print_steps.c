@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:31:02 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 21:53:02 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:32:28 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_steps(t_game *game, int win)
 
 	if (win)
 	{
-		steps = ft_itoa(game->player.steps);
+		steps = ft_itoa(game->player.steps + 1);
 		s = ft_strjoin("Steps taken: ", steps);
 		ft_putendl_fd("YOU WON!!", 1);
 		ft_putendl_fd(s, 1);

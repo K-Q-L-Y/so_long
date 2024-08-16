@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:49:42 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/13 15:36:34 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:23:31 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	collect_collectible(t_game *game, int collectible)
 
 void	ft_player_move(t_game *game, int new_x, int new_y, int direction)
 {
+	game->player.direction = direction;
 	if (game->map.blocks[new_y][new_x] != WALL)
 	{
 		if (game->map.blocks[game->player.y][game->player.x] == EXIT)

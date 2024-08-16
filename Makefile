@@ -13,9 +13,10 @@ OBJDIRS		= $(sort $(dir $(OBJS)))
 OBJS		= $(subst $(SRCDIR),$(OBJDIR),$(subst .c,.o,$(SRCS)))
 
 # assets
-ASSETS_DIR	= assets
-XPM_DIR		= assets/xpm
-IMAGE_SZIE	= 32x32
+ASSETS_DIR		= assets
+XPM_DIR			= assets/xpm
+IMAGE_SZIE		= 32x32
+ASSETS_PATH_H	= headers/assets_path.h
 
 # includes and headers
 CWD			:= $(shell pwd)
