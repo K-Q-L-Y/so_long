@@ -21,21 +21,15 @@ IMAGE_SZIE	= 32x32
 CWD			:= $(shell pwd)
 INCLUDE_DIR	= includes
 HEADER_DIR	= headers
-HEADERS		:= $(shell find $(HEADER_DIR) -name '*.h')
+HEADERS		:= $(shell find $(HEADER_DIR) -name '*.h') $(shell find $(INCLUDE_DIR) -name '*.h')
 HEADERS_INC	= $(addprefix -I,$(sort $(dir $(HEADERS))))
 
 IFLAGS		:= -I. $(HEADERS_INC)
 
-# libraries
-LIBFT_DIR	= $(INCLUDE_DIR)/libft
-LIBFT		= $(LIBFT_DIR)/libft.a
-
-LIBS		= $(LIBFT)
-
 # mlx library
-MLX_LINUX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+UNAME_S		:= $(shell uname -s)
+MLX_LINUX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 MLX_MACOS	= -lmlx -framework OpenGL -framework AppKit
-
 ifeq ($(UNAME_S), Darwin)
 	MLX		= $(MLX_MACOS)
 	MLX_CO	=
@@ -44,19 +38,24 @@ else
 	MLX_CO	= $(MLX_LINUX)
 endif
 
+# libraries
+LIBFT_DIR	= $(INCLUDE_DIR)/libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+LIBS		= $(LIBFT)
+
 # extras
 RM			= rm -rf
 UP			= \033[1A
 FLUSH		= \033[2K
 
 # build
-$(NAME): $(OBJDIRS) $(OBJS) $(LIBS)
-	$(CC) $(OBJS) $(LIBS) $(MLX) -o $(NAME)
-	@echo "$(UP)$(FLUSH)$(UP)"
+$(NAME): $(LIBS) $(OBJDIRS) $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(OBJS) $(IFLAGS) $(LIBS) $(MLX) -o $(NAME)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) $(LIBS)
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(IFLAGS) $(MLX_CO) -c $< -o $@
-	@echo "$(UP)$(FLUSH)$(UP)"
+	@echo "$(UP)$(FLUSH)$(UP)$(FLUSH)$(UP)$(FLUSH)$(UP)"
 # -I/usr/include -Imlx_linux -O3
 
 $(OBJDIRS):
@@ -78,6 +77,17 @@ xpm:
 		convert $$file -resize $(IMAGE_SZIE) $$dest_file; \
 		echo "Converted $$file to $$dest_file"; \
 	done
+
+path_h:
+	@echo "#ifndef ASSETS_PATH_H" > $(ASSETS_PATH_H)
+	@echo "# define ASSETS_PATH_H" >> $(ASSETS_PATH_H)
+	@find assets/ -type f -name '*.xpm' -exec sh -c ' \
+		FILE="{}"; \
+		DEF_NAME=$$(echo "$$FILE" | tr "/" "_" | sed "s/\.xpm$$//" | awk "{print toupper(\$$0)}" | sed "s/ASSETS_SPRITES_//"  | sed "s/ASSETS__SPRITES_//"); \
+		echo "# define PATH_$$DEF_NAME \"$$FILE\"" >> $(ASSETS_PATH_H); \
+	' \;
+	@echo "#endif" >> $(ASSETS_PATH_H)
+	@cat $(ASSETS_PATH_H)
 
 push:
 	@read -p "Commit name: " commit_name; make fclean;	\

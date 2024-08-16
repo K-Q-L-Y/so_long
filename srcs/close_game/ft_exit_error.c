@@ -6,7 +6,7 @@
 /*   By: cseng-kh <cseng-kh@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 11:50:46 by cseng-kh          #+#    #+#             */
-/*   Updated: 2024/08/15 22:07:13 by cseng-kh         ###   ########.fr       */
+/*   Updated: 2024/08/16 09:48:37 by cseng-kh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_exit_error(char *s, t_game *game)
 	if (game->map.map_alloc == 1)
 		ft_free_split(game->map.y, game->map.blocks);
 	ft_destroy_images(game);
-	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free(game);
 	exit(1);
